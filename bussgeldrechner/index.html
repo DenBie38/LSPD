@@ -20,9 +20,17 @@
     <link rel="stylesheet" href="../../kit-pro.fontawesome.com/releases/v6.2.1/css/pro.min.css">
     <link rel="stylesheet" href="notifications.css">
     <script src="notifications.js"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfW1XkqAAAAAP2AMX9TJd0HF9XDSMfwXxDHAKy4"></script>
 </head>
 <body>
-
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LfW1XkqAAAAAP2AMX9TJd0HF9XDSMfwXxDHAKy4', {action: 'LOGIN'});
+    });
+  }
+</script>
     <div id="loading">
         <img draggable="false" src="DOJ_logo.png" alt="SAHP_logo" >
         <div id="dotContainer">
