@@ -22,6 +22,17 @@
     <link rel="stylesheet" href="../kit-pro.fontawesome.com/releases/v6.2.1/css/pro.min.css">
     <link rel="stylesheet" href="notifications.css">
     <script src="notifications.js"></script>
+	    <style>
+        /* CSS für das Video */
+        #video_container {
+            text-align: center; /* Zentriert das Video */
+            margin: 10px 0; /* Fügt oben und unten einen Abstand hinzu */
+        }
+        #disclaimer_video {
+            width: 80%; /* Setzt die Breite des Videos auf 80% */
+            max-width: 600px; /* Maximale Breite für große Bildschirme */
+        }
+    </style>
 </head>
 <body>
     <div id="loading">
@@ -46,6 +57,12 @@
 			<span id="countdown_text">Der Button wird in <span id="countdown">15</span> Sekunden automatisch gedrückt.</span>
 			<br><br>
 		</div>
+            <div id="video_container">
+                <video id="disclaimer_video" controls autoplay muted>
+                    <source src="SAHP_2.mp4" type="video/mp4"> <!-- Hier den Pfad zu deinem Video angeben -->
+                    Ihr Browser unterstützt das Video-Tag.
+                </video>
+            </div>
 		<br>
 		<button id="disclaimer_button" onclick="JavaScript:disclaimerAccepted()">Verstanden</button>
 		<button id="discord_button" onclick="window.open('https://discord.gg/prCMKBNs8Z')">Bewerber Discord</button>
