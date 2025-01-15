@@ -41,7 +41,9 @@
         <br>
         <div id="disclaimer_text">Dieser Bußgeldrechner wird von Maik Bosa weitergeführt. Er übernimmt keine Haftung für falsch ausgestellte Akten!
             <br>
-            <br>Bei Fragen oder Anregungen, kommt gerne auf unseren Discord-Server. </div>
+            <br>
+			
+		</div>
             
         <br>
         <button id="disclaimer_button" onclick="JavaScript:disclaimerAccepted()">Verstanden</button>
@@ -574,18 +576,6 @@
                 </tr>
                 <tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
                     <td class="paragraph">BtMG §2.1</td>
-                    <td class="fineText">Drogenbesitz Klein ab 1 - 5<br><i>Gilt nicht für Cannabis & Kokain</i></td>
-                    <td class="wantedAmount" data-wantedamount="0"><font class="extrawanted1 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="0">☆</font></td>
-                    <td class="fineAmount" data-fineamount="5000">$5.000</td>
-                </tr>
-                <tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
-                    <td class="paragraph">BtMG §2.1</td>
-                    <td class="fineText">Drogenbesitz Mittel ab 6 - 10<br><i>Gilt nicht für Cannabis & Kokain</i></td>
-                    <td class="wantedAmount" data-wantedamount="1">⭐</td>
-                    <td class="fineAmount" data-fineamount="10000">$10.000</td>
-                </tr>
-                <tr class="showing fine" onclick="JavaScript:selectFine(event)" data-removedriverlicence="false" data-removeweaponlicence="false">
-                    <td class="paragraph">BtMG §2.1</td>
                     <td class="fineText">Drogenbesitz Mittel ab 11 - 20<br><i>Gilt nicht für Cannabis</i></td>
                     <td class="wantedAmount" data-wantedamount="1">⭐</td>
                     <td class="fineAmount" data-fineamount="10000">$10.000</td>
@@ -765,10 +755,17 @@
                     <input id="systemfehler_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
                     <label style="line-height: 25px;" for="systemfehler_box">Systemfehler</label>
                 </div>
-                <button id="showButton" onclick="JavaScript:showFines()">Bußgelder anzeigen</button>
                 <button id="showAttorneysButton" onclick="JavaScript:showAttorneys()">Anwaltsregister anzeigen</button>
                 <button id="showRightsButton" onclick="JavaScript:showRights()">Rechte anzeigen</button>
                 <button id="resetButton" onclick="JavaScript:resetButton()">Zurücksetzen</button>
+
+    <!-- Logo Container -->
+	
+    <div id="logoContainer" style="text-align: center; margin-top: 20px; margin-left: -120px;">
+        <img src="logosahp.png" alt="Logo" id="logo" style="width: 30%; height: auto;">
+    </div>
+
+	
             </div>
             <div id="finesListContainer" style="pointer-events: none;">
                 <div id="finesListContainer_title">Auflistung der zu vergebenen Geldstrafen</div>
