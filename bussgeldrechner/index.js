@@ -298,28 +298,32 @@ function showRights() {
 
 window.onload = async () => {
     let savedBody;
-    let alreadyBig = true
+    let alreadyBig = true;
 
-    await sleep(Math.round(Math.random() * 2500))
+    // Kontrollkästchen "Kurzer Grund" sicherstellen
+    const checkbox = document.getElementById("checkbox_box");
+    checkbox.checked = true; // Setzt das Kontrollkästchen erneut, falls es überschrieben wurde
 
-    document.body.innerHTML = document.getElementById("scriptingDiv").innerHTML
-    savedBody = document.body.innerHTML
+    await sleep(Math.round(Math.random() * 2500));
 
-    openDisclaimer()
+    document.body.innerHTML = document.getElementById("scriptingDiv").innerHTML;
+    savedBody = document.body.innerHTML;
+
+    openDisclaimer();
 
     setInterval(() => {
         if (document.body.clientWidth < 700) {
-            alreadyBig = false
+            alreadyBig = false;
             document.body.innerHTML = `
             <div style="transform: translate(-50%, -50%); font-weight: 600; font-size: 8vw; color: white; width: 80%; position: relative; left: 50%; top: 50%; text-align: center;">Diese Website kann nur auf einem PC angesehen werden<div>
-            `
-            document.body.style.backgroundColor = "#121212"
+            `;
+            document.body.style.backgroundColor = "#121212";
         } else if (alreadyBig == false) {
-            alreadyBig = true
-            location.reload()
+            alreadyBig = true;
+            location.reload();
         }
-    }, 1)
-}
+    }, 1);
+};
 
 function resetButton() {
     let fineCollection = document.querySelectorAll(".selected")
@@ -343,15 +347,41 @@ function resetButton() {
 }
 
 function copyText(event) {
-    let target = event.target
+    let target = event.target;
     // Get the text field
-    var copyText = target.innerHTML
-  
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.replace("<br>", ""));
+    var copyText = target.innerHTML;
 
-    insertNotification("success", "Der Text wurde kopiert.", 5)
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.replace("<br>", ""))
+        .then(() => {
+            // Success notification
+            const notification = document.createElement("div");
+            notification.innerText = "Der Text wurde erfolgreich kopiert.";
+            notification.style.position = "fixed"; // Fixe Positionierung
+            notification.style.top = "50%"; // Vertikal zentriert
+            notification.style.left = "50%"; // Horizontal zentriert
+            notification.style.transform = "translate(-50%, -50%)"; // Exakte Zentrierung
+            notification.style.backgroundColor = "#4CAF50"; // Grün für Erfolg
+            notification.style.color = "white";
+            notification.style.padding = "30px"; // Größerer Innenabstand für Höhe
+            notification.style.width = "600px"; // Dreifache Breite
+            notification.style.borderRadius = "5px";
+            notification.style.boxShadow = "0 2px 5px rgba(0,0,0,0.2)";
+            notification.style.zIndex = "1000";
+            notification.style.textAlign = "center"; // Zentrierter Text
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        })
+        .catch((err) => {
+            console.error("Fehler beim Kopieren: ", err);
+        });
 }
+
 
 function toggleExtraWanted(event) {
     let target = event.target
