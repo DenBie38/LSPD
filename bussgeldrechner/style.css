@@ -176,7 +176,33 @@ body {
 .selected td {
     color: white;
 }
+#logoContainer {
+    margin-top: 10px; /* Abstand zum vorherigen Element */
+    text-align: center; /* Zentriert das Logo im Container */
+    margin-left: 20px; /* Verschiebt das Logo 20px nach rechts */
+}
 
+#logo {
+	animation: blink 10s infinite; /* Die Animation blinkt alle 1 Sekunde unendlich oft */
+    width: 200px; /* Setze die Breite auf 200px */
+    height: auto; /* Automatische Höhe basierend auf der Breite */
+    opacity: 0.8; /* Leichte Transparenz für einen sanften Effekt */
+}
+
+#logo:hover {
+    opacity: 1; /* Vollständig sichtbar beim Überfahren mit der Maus */
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0; /* Logo wird unsichtbar */
+    }
+    100% {
+        opacity: 1; /* Logo wird wieder sichtbar */
+    }
+}
 #resultsTitle {
     width: 100%;
     font-size: 3vh;
