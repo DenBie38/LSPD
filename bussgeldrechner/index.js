@@ -204,6 +204,7 @@ function startCalculating() {
 
     }
 
+
     if (document.getElementById("reue_box").checked && wantedAmount !== 0) { // Means "reue" is active
         wantedAmount = wantedAmount - 2
         if (wantedAmount < 1) wantedAmount = 1
@@ -479,3 +480,5 @@ async function openDisclaimer() {
 
     disclaimerNode.style.boxShadow = "rgba(0, 0, 0, 0.219) 0px 0px 70px 30vw"
 }
+
+

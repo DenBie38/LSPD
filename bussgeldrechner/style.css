@@ -203,6 +203,37 @@ body {
         opacity: 1; /* Logo wird wieder sichtbar */
     }
 }
+#disclaimer {
+    position: fixed; /* Fixiert das Element relativ zum Viewport */
+    top: 50%; /* Vertikale Mitte */
+    left: 50%; /* Horizontale Mitte */
+    transform: translate(-50%, -50%); /* Zentriert das Element exakt */
+    background-color: white; /* Hintergrundfarbe */
+    border: 2px solid #ccc; /* Optionale Umrandung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    padding: 20px; /* Innenabstand */
+    z-index: 1000; /* Sicherstellen, dass es über anderen Elementen liegt */
+    text-align: center; /* Text zentrieren */
+    width: 50%; /* Optionale Breite */
+    max-width: 600px; /* Maximale Breite */
+    border-radius: 10px; /* Abgerundete Ecken */
+}
+
+#disclaimer_button {
+    margin-top: 100px; /* Abstand über dem Button */
+    padding: 10px 20px; /* Innenabstand für den Button */
+    font-size: 16px; /* Schriftgröße */
+    background-color: #007BFF; /* Button-Hintergrund */
+    color: white; /* Button-Textfarbe */
+    border: none; /* Keine Umrandung */
+    border-radius: 5px; /* Abgerundete Ecken */
+    cursor: pointer; /* Zeigt eine Hand bei Hover an */
+}
+
+#disclaimer_button:hover {
+    background-color: #0056b3; /* Dunklere Farbe beim Hover */
+}
+
 #resultsTitle {
     width: 100%;
     font-size: 3vh;
