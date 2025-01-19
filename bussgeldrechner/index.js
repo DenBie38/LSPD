@@ -104,22 +104,25 @@ function startCalculating() {
         }
     }
 
-    let maxFine = fineCollectionFineAmount[0]; // initialize to the first value
+	// Beide Arrays zusammen betrachten, um das passende Bußgeld zum höchsten Wanted-Level zu ermitteln
+	let maxIndex = 0; // Index des höchsten Strafmaßes
 
-    for (let i = 1; i < fineCollectionFineAmount.length; i++) {
-        if (fineCollectionFineAmount[i] > maxFine) {
-            maxFine = fineCollectionFineAmount[i];
-        }
-    }
+	for (let i = 1; i < fineCollectionWantedAmount.length; i++) {
+		if (fineCollectionWantedAmount[i] > fineCollectionWantedAmount[maxIndex]) {
+			maxIndex = i; // Aktualisiere den Index des höchsten Wanted-Levels
+		}
+	}
 
-    wantedAmount = maxWanted
-    fineAmount = maxFine
-   
-    if (wantedAmount == undefined) wantedAmount = 0
-    if (fineAmount == undefined) fineAmount = 0
-    
-    console.log("Largest Wanteds:" + maxWanted);  
-    console.log("Largest Fine:" + maxFine);  
+	// Setze das Strafmaß und das zugehörige Bußgeld
+	wantedAmount = fineCollectionWantedAmount[maxIndex];
+	fineAmount = fineCollectionFineAmount[maxIndex];
+
+	// Fallback, falls keine Werte gefunden werden
+	if (wantedAmount === undefined) wantedAmount = 0;
+	if (fineAmount === undefined) fineAmount = 0;
+
+	console.log("Höchstes Strafmaß:", wantedAmount);
+	console.log("Zugehöriges Bußgeld:", fineAmount);
 
     for (var i = 0; i < fineCollection.length; i++) {
         //fineAmount = fineAmount + parseInt(fineCollection[i].querySelector(".fineAmount").getAttribute("data-fineamount"))
