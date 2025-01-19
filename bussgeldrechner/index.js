@@ -342,14 +342,16 @@ function resetButton() {
     document.getElementById("übergabeInput_select").value = "none"
     document.getElementById("übergabeInput_input").value = ""
 
-    document.getElementById("notepadArea_input").value = ""
+    /* document.getElementById("notepadArea_input").value = "" */
     
     document.getElementById("reue_box").checked = false
     document.getElementById("systemfehler_box").checked = false
 
     startCalculating()
 }
-
+function clearNotepad() {
+    document.getElementById("notepadArea_input").value = ""; // Inhalt des Textarea löschen
+}
 function copyText(event) {
     let target = event.target;
     // Get the text field
