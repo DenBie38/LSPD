@@ -280,14 +280,25 @@ function showFines() {
 } 
 
 function showAttorneys() {
-    if (document.getElementById("attorneyContainer").style.opacity == 0) {
-        document.getElementById("attorneyContainer").style.opacity = 1
-        document.getElementById("attorneyContainer").style.pointerEvents = ""
-    } else {
-        document.getElementById("attorneyContainer").style.opacity = 0
-        document.getElementById("attorneyContainer").style.pointerEvents = "none"
-    }
-} 
+    const container = document.getElementById("attorneyContainer");
+    const backdrop = document.getElementById("attorneyContainer_backdrop");
+
+    container.style.opacity = 1;
+    container.style.pointerEvents = "auto";
+    backdrop.style.display = "block";
+}
+
+function hideAttorneys() {
+    const container = document.getElementById("attorneyContainer");
+    const backdrop = document.getElementById("attorneyContainer_backdrop");
+
+    container.style.opacity = 0;
+    container.style.pointerEvents = "none";
+    backdrop.style.display = "none";
+}
+
+
+
 
 function showRights() {
     if (document.getElementById("rightsContainer").style.opacity == 0) {

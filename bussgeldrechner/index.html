@@ -874,12 +874,23 @@
 
 
             </div>
-            <div id="attorneyContainer" style="pointer-events: none;">
-                <iframe src="https://docs.google.com/spreadsheets/u/0/d/e/2PACX-1vR9jL6XijVLrXvOs1bqjsE0cWfvER0e0VU4F8wh3wgVEIdY0wyIUAfxJaZZpwMPERPFGZHQ-_sdtjWi/pubhtml/sheet?headers=false&amp;gid=2072721097"></iframe>
+            
+            <div id="attorneyContainer_backdrop" onclick="hideAttorneys()"></div>
+            <div id="attorneyContainer" style="opacity: 0; pointer-events: none;">
+                <div id="attorneyContainer_title">
+                    Anwaltsregister
+                    <button id="attorneyContainer_close" onclick="hideAttorneys()">✖</button>
+                </div>
+                <div id="attorneyContainer_iframe">
+                    <iframe src="https://docs.google.com/spreadsheets/u/0/d/e/2PACX-1vR9jL6XijVLrXvOs1bqjsE0cWfvER0e0VU4F8wh3wgVEIdY0wyIUAfxJaZZpwMPERPFGZHQ-_sdtjWi/pubhtml/sheet?headers=false&amp;gid=2072721097"></iframe>
+                </div>
+            </div>
+
+
+            
            <div id="standartNotifications">
         </div>
     </div>
     </body>
 
-<!-- Made by Joshi Enrage | 147106 -->
 </html>
