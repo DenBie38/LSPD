@@ -300,14 +300,14 @@ function hideAttorneys() {
 
 
 
-function showRights() {
-    if (document.getElementById("rightsContainer").style.opacity == 0) {
-        document.getElementById("rightsContainer").style.opacity = 1
-        document.getElementById("rightsContainer").style.pointerEvents = ""
-    } else {
-        document.getElementById("rightsContainer").style.opacity = 0
-        document.getElementById("rightsContainer").style.pointerEvents = "none"
-    }
+function showRightsContainer() {
+    document.getElementById("rightsContainer").setAttribute("data-showing", "true");
+    document.getElementById("rightsContainer_backdrop").style.display = "block";
+}
+
+function hideRightsContainer() {
+    document.getElementById("rightsContainer").setAttribute("data-showing", "false");
+    document.getElementById("rightsContainer_backdrop").style.display = "none";
 }
 
 

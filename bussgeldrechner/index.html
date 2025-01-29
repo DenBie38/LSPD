@@ -838,7 +838,7 @@
                     <label style="line-height: 25px;" for="systemfehler_box">Systemfehler</label>
                 </div>
                 <button id="showAttorneysButton" onclick="JavaScript:showAttorneys()">Anwaltsregister anzeigen</button>
-                <button id="showRightsButton" onclick="JavaScript:showRights()">Rechte anzeigen</button>
+                <button id="showRightsButton" onclick="showRightsContainer()">Rechte Anzeigen</button>
                 <button id="resetButton" onclick="JavaScript:resetButton()">Zurücksetzen</button>
 
     <!-- Logo Container -->
@@ -858,23 +858,30 @@
                     </tr>
                 </table>
             </div>
-            <div id="rightsContainer" style="pointer-events: none;" >
-                <div id="rightsContainer_title">Die Rechte des TVs:</div>
-                <br>
-               <div id="rightsContainer_text">Sie haben das Recht zu schweigen, alles was Sie sagen, kann gegen Sie verwendet werden. Ab 3 Wanteds haben Sie das Recht auf einen Anwalt, den Sie selbst benennen müssen. Wenn kein Anwalt verfügbar ist, wird Ihnen keiner gestellt. Die Judikative übernimmt der Exekutivbeamte. <br> Haben Sie ihre Rechte verstanden?
-               <br><br><br>
-               </div>
 
-               <div id="rightsContainer_title">Wenn ein Anwalt gewünscht:</div>
+<!-- Hintergrund für Modal -->
+<div id="rightsContainer_backdrop" onclick="hideRightsContainer()"></div>
 
-               <div id="rightsContainer_text">Wenn ein Anwalt hinzugezogen wird, kann es länger als 25 Minuten dauern. Haben Sie dies verstanden?
-               </div>
-            
-            </div>
-
-
-            </div>
-            
+<!-- Modal für Rechte -->
+<div id="rightsContainer">
+    <div id="rightsContainer_title">
+        <span>Rechte Anzeigen</span>
+        <button id="rightsContainer_close" onclick="hideRightsContainer()">✖</button>
+    </div>
+    
+    <div id="rightsContainer_content">
+        <h2>Die Rechte des TVs:</h2>
+        <p>Sie haben das Recht zu schweigen, alles was Sie sagen, kann gegen Sie verwendet werden. 
+           Ab 3 Wanteds haben Sie das Recht auf einen Anwalt, den Sie selbst benennen müssen. 
+           Wenn kein Anwalt verfügbar ist, wird Ihnen keiner gestellt. 
+           Die Judikative übernimmt der Exekutivbeamte.</p>
+        <p>Haben Sie Ihre Rechte verstanden?</p>
+    
+        <h2>Wenn ein Anwalt gewünscht:</h2>
+        <p>Wenn ein Anwalt hinzugezogen wird, kann es länger als 25 Minuten dauern. 
+           Haben Sie dies verstanden?</p>
+    </div>
+</div>     
             <div id="attorneyContainer_backdrop" onclick="hideAttorneys()"></div>
             <div id="attorneyContainer" style="opacity: 0; pointer-events: none;">
                 <div id="attorneyContainer_title">
@@ -882,7 +889,8 @@
                     <button id="attorneyContainer_close" onclick="hideAttorneys()">✖</button>
                 </div>
                 <div id="attorneyContainer_iframe">
-                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTh4jqve-YQCASdlupw0fYO-5bGlofal0j0aRTP9gEuDl9cHaliVLfHWOj9WSCeh8uUSDP06FtzuEs8/pubhtml?widget=true&amp;headers=false"></iframe>
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTh4jqve-YQCASdlupw0fYO-5bGlofal0j0aRTP9gEuDl9cHaliVLfHWOj9WSCeh8uUSDP06FtzuEs8/pubhtml?gid=0&amp;widget=true&amp;headers=false"></iframe>
+
                 </div>
             </div>
 
