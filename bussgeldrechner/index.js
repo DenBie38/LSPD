@@ -328,7 +328,7 @@ window.onload = async () => {
     savedBody = document.body.innerHTML;
 
     openDisclaimer();
-
+	document.getElementById("clickSound").volume = 0.1;
     setInterval(() => {
         if (document.body.clientWidth < 700) {
             alreadyBig = false;
@@ -499,5 +499,3 @@ async function openDisclaimer() {
 
     disclaimerNode.style.boxShadow = "rgba(0, 0, 0, 0.219) 0px 0px 70px 30vw"
 }
-
-
