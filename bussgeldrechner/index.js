@@ -125,6 +125,27 @@ function startCalculating() {
 			//fineAmount = Math.max(...fineCollectionFineAmount); // Höchste Geldstrafe nehmen
 			fineAmount = fineCollectionFineAmount.length > 0 ? Math.max(...fineCollectionFineAmount) : 0;
 		}
+		
+// Durch alle ausgewählten Strafen iterieren
+for (let i = 0; i < fineCollectionWantedAmount.length; i++) {
+    if (fineCollectionWantedAmount[i] > wantedAmount) {
+        // Höchste Wanteds gefunden -> Geldstrafe speichern
+        wantedAmount = fineCollectionWantedAmount[i];
+        fineAmount = fineCollectionFineAmount[i];
+    } else if (fineCollectionWantedAmount[i] === wantedAmount) {
+        // Falls die Wanteds gleich sind, die höhere Geldstrafe nehmen
+        if (fineCollectionFineAmount[i] > fineAmount) {
+            fineAmount = fineCollectionFineAmount[i];
+        }
+    }
+}
+
+// Fallback, falls keine Strafen ausgewählt wurden
+if (fineCollectionWantedAmount.length === 0) {
+    wantedAmount = 0;
+    fineAmount = 0;
+}
+
 	console.log("Höchstes Strafmaß:", wantedAmount);
 	console.log("Zugehöriges Bußgeld:", fineAmount);
 
