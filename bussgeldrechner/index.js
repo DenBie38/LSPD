@@ -120,7 +120,10 @@ function startCalculating() {
 	// Fallback, falls keine Werte gefunden werden
 	if (wantedAmount === undefined) wantedAmount = 0;
 	if (fineAmount === undefined) fineAmount = 0;
-
+	if (wantedAmount === 0) 
+		{
+			fineAmount = Math.max(...fineCollectionFineAmount); // Höchste Geldstrafe nehmen
+		}
 	console.log("Höchstes Strafmaß:", wantedAmount);
 	console.log("Zugehöriges Bußgeld:", fineAmount);
 
