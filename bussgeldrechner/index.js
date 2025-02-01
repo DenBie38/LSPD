@@ -145,7 +145,7 @@ if (fineCollectionWantedAmount.length === 0) {
     wantedAmount = 0;
     fineAmount = 0;
 }
-
+		
 	console.log("Höchstes Strafmaß:", wantedAmount);
 	console.log("Zugehöriges Bußgeld:", fineAmount);
 
@@ -423,7 +423,18 @@ function copyText(event) {
             console.error("Fehler beim Kopieren: ", err);
         });
 }
+function copyNotepad() {
+    const notepad = document.getElementById("notepadArea_input");
+    notepad.select(); // Markiert den gesamten Text im Bereich
+    notepad.setSelectionRange(0, 99999); // Für mobile Geräte
 
+    // Kopiert den markierten Text in die Zwischenablage
+    navigator.clipboard.writeText(notepad.value).then(() => {
+        alert("Text erfolgreich kopiert!");
+    }).catch(err => {
+        console.error("Fehler beim Kopieren:", err);
+    });
+}
 
 function toggleExtraWanted(event) {
     let target = event.target
