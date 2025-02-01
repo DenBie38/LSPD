@@ -122,7 +122,8 @@ function startCalculating() {
 	if (fineAmount === undefined) fineAmount = 0;
 	if (wantedAmount === 0) 
 		{
-			fineAmount = Math.max(...fineCollectionFineAmount); // Höchste Geldstrafe nehmen
+			//fineAmount = Math.max(...fineCollectionFineAmount); // Höchste Geldstrafe nehmen
+			fineAmount = fineCollectionFineAmount.length > 0 ? Math.max(...fineCollectionFineAmount) : 0;
 		}
 	console.log("Höchstes Strafmaß:", wantedAmount);
 	console.log("Zugehöriges Bußgeld:", fineAmount);
