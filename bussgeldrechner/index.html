@@ -833,9 +833,9 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
                 </select>
                     <input id="übergabeInput_input" type="text" oninput="JavaScript:startCalculating()" placeholder="TV-Abtransport Beauftrager" maxlength="64">
                 </div>
-				<div id="notepadArea" contenteditable="true">
+				<div id="notepadArea" contenteditable="false">
 						<textarea id="notepadArea_input" placeholder="Schreibe deine Notizen hier..." rows="3"></textarea>
-						<button id="clearButton" onclick="clearNotepad()">x</button> <!-- Löschen-Button hinzufügen -->
+						<button id="clearButton" contenteditable="false" onclick="clearNotepad()">x</button> <!-- Löschen-Button hinzufügen -->
 				</div>
                 <div id="reue">
                     <input id="reue_box" onchange="JavaScript:startCalculating()" type="checkbox" name="">
