@@ -15,19 +15,103 @@ function searchFine() {
 }
 
 function selectFine(event) {
-    let element = event.target
-    if (element.tagName == "FONT") return
-    if (element.tagName == "TD") element = element.parentElement
-    if (element.tagName == "I") element = element.parentElement.parentElement
+    let element = event.target;
 
-    if (element.classList.contains("selected")) {
-        element.classList.remove("selected")
-    } else {
-        element.classList.add("selected")
+    // Verhindere das Auswählen von Font-Tags
+    if (element.tagName == "FONT") return;
+
+    // Wenn der Klick auf eine Table-Data-Zelle (TD) war, gehe zum Elternelement (die Zeile)
+    if (element.tagName == "TD") element = element.parentElement;
+
+    // Wenn der Klick auf ein I-Tag war, gehe zum Elternelement der Zeile
+    if (element.tagName == "I") element = element.parentElement.parentElement;
+
+    // Überprüfe, ob "Ammu Rob" oder "Terror" bereits ausgewählt ist
+    const isAmmuRobSelected = document.querySelector('.fine[data-fine="ammuRob"].selected');
+    const isTerrorSelected = document.querySelector('.fine[data-fine="terror"].selected');
+
+    // Wenn "Ammu Rob" oder "Terror" markiert ist, verhindere das Markieren anderer Zeilen
+    if (isAmmuRobSelected || isTerrorSelected) {
+        if (element.dataset.fine !== "ammuRob" && element.dataset.fine !== "terror") return; // Anderen Zeilen das Markieren verweigern
     }
 
-    startCalculating()
+    // Wenn der geklickte Eintrag "Ammu Rob" ist, toggle die "selected"-Klasse
+    if (element.dataset.fine === "ammuRob") {
+        // Toggle "selected" für Ammu Rob
+        element.classList.toggle("selected");
+
+        // Wenn Ammu Rob ausgewählt wird, entferne die Auswahl von allen anderen
+        if (element.classList.contains("selected")) {
+            let allRows = document.querySelectorAll('.fine');
+            for (var i = 0; i < allRows.length; i++) {
+                // Alle anderen Zeilen abwählen, wenn Ammu Rob ausgewählt wird
+                if (allRows[i].dataset.fine !== "ammuRob") {
+                    allRows[i].classList.remove('selected');
+                }
+            }
+        }
+
+        // Zeige eine Benachrichtigung, wenn Ammu Rob aktiviert wird
+        showNotification('Shop/Amu Rob deckt alle Strafen ab, wurde aktiviert!');
+    } 
+    // Wenn der geklickte Eintrag "Terror" ist, toggle die "selected"-Klasse
+    else if (element.dataset.fine === "terror") {
+        // Toggle "selected" für Terror
+        element.classList.toggle("selected");
+
+        // Wenn Terror ausgewählt wird, entferne die Auswahl von allen anderen
+        if (element.classList.contains("selected")) {
+            let allRows = document.querySelectorAll('.fine');
+            for (var i = 0; i < allRows.length; i++) {
+                // Alle anderen Zeilen abwählen, wenn Terror ausgewählt wird
+                if (allRows[i].dataset.fine !== "terror") {
+                    allRows[i].classList.remove('selected');
+                }
+            }
+        }
+
+        // Zeige eine Benachrichtigung, wenn Terror aktiviert wird
+        showNotification('Terror deckt alle Strafen ab, wurde aktiviert!');
+    } else {
+        // Bei allen anderen Einträgen: Toggle die "selected"-Klasse
+        element.classList.toggle("selected");
+    }
+
+    // Berechne den Gesamtwert (oder starte eine andere Funktion)
+    startCalculating();
 }
+
+// Funktion zum Anzeigen der Benachrichtigung
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    
+    // Setze die Nachricht in der Benachrichtigung
+    notification.textContent = message;
+
+    // Mache die Benachrichtigung sichtbar
+    notification.style.display = 'block';
+
+    // Setze die Opazität auf 1, damit sie eingeblendet wird
+    setTimeout(function() {
+        notification.style.opacity = 1;
+    }, 10); // Kurz nach dem Anzeigen wird die Opazität verändert
+
+    // Verstecke die Benachrichtigung nach 3 Sekunden (3000ms)
+    setTimeout(function() {
+        notification.style.opacity = 0;
+        // Verstecke die Benachrichtigung nach dem Ausblenden
+        setTimeout(function() {
+            notification.style.display = 'none';
+        }, 500); // 500ms nach dem Ausblenden
+    }, 3000);
+}
+
+
+
+
+
+
+
 
 function startCalculating() {
 
