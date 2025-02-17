@@ -137,7 +137,7 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
             let countdownValue = 15; // Startwert des Countdowns in Sekunden
             let countdownInterval; // Intervall für den Countdown
 
-            // Funktion zum Aktualisieren des Countdowns
+            // Funktion zum Aktualisieren des Countdowns <br><i>Gilt nicht für Cannabis</i>
             function updateCountdown() {
                 if (countdownValue > 0) {
                     document.getElementById("countdown").textContent = countdownValue; // Countdown-Text aktualisieren
@@ -405,8 +405,8 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
                 <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();">
                     <td class="paragraph">StGB §5</td>
                     <td class="fineText">Sexuelle Belästigung</td>
-                    <td class="wantedAmount" data-wantedamount="1">⭐<font class="extrawanted1 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="20000">☆</font><font class="extrawanted2 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="20000">☆</font></td>
-                    <td class="fineAmount" data-fineamount="20000">$20.000 pro ⭐</td>
+                    <td class="wantedAmount" data-wantedamount="1">⭐<font class="extrawanted1 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="10000">☆</font><font class="extrawanted2 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="10000">☆</font></td>
+                    <td class="fineAmount" data-fineamount="30000">$10.000 pro ⭐</td>
                 </tr>
                 <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();">
                     <td class="paragraph">StGB §20</td>
@@ -694,15 +694,27 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
                 </tr>
                 <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();" data-removedriverlicence="false" data-removeweaponlicence="false">
                     <td class="paragraph">BtMG §2.1</td>
-                    <td class="fineText">Drogenbesitz Mittel ab 11 - 20<br><i>Gilt nicht für Cannabis</i></td>
-                    <td class="wantedAmount" data-wantedamount="1">⭐</td>
-                    <td class="fineAmount" data-fineamount="10000">$10.000</td>
+                    <td class="fineText">Drogenbesitz (Kokain) Klein ab 11 - 30</td>
+                    <td class="wantedAmount" data-wantedamount="0"><font class="extrawanted1 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="0">☆</font></td>
+                    <td class="fineAmount" data-fineamount="15000">$15.000</td>
                 </tr>
                 <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();" data-removedriverlicence="false" data-removeweaponlicence="false">
                     <td class="paragraph">BtMG §2.1</td>
-                    <td class="fineText">Drogenbesitz Groß 20+</td>
-                    <td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
+                    <td class="fineText">Drogenbesitz (Marihuana) besitz Klein ab 21 - 30</td>
+                    <td class="wantedAmount" data-wantedamount="0"><font class="extrawanted1 extrawanted" onclick="JavaScript:toggleExtraWanted(event)" data-addedfine="0">☆</font></td>
+                    <td class="fineAmount" data-fineamount="15000">$15.000</td>
+                </tr>
+                <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();" data-removedriverlicence="false" data-removeweaponlicence="false">
+                    <td class="paragraph">BtMG §2.1</td>
+                    <td class="fineText">Drogenbesitz Mittel ab 31 - 50</td>
+                    <td class="wantedAmount" data-wantedamount="1">⭐</td>
                     <td class="fineAmount" data-fineamount="20000">$20.000</td>
+                </tr>
+                <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();" data-removedriverlicence="false" data-removeweaponlicence="false">
+                    <td class="paragraph">BtMG §2.1</td>
+                    <td class="fineText">Drogenbesitz Groß 50+</td>
+                    <td class="wantedAmount" data-wantedamount="2">⭐⭐</td>
+                    <td class="fineAmount" data-fineamount="30000">$30.000</td>
                 </tr>
                 <tr class="showing fine" onclick="(function() { document.getElementById('clickSound').play(); selectFine(event); })();" data-removedriverlicence="false" data-removeweaponlicence="false">
                     <td class="paragraph">BtMG §2.1</td>
