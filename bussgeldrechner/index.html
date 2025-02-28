@@ -95,11 +95,13 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
 <body>
     <div id="loading">
         <img draggable="false" src="DOJ_logo.png" alt="SAHP_logo" >
-        <div id="dotContainer">
-            <div class="dot" id="dot1"><div class="dotContent"></div></div>
-            <div class="dot" id="dot2"><div class="dotContent"></div></div>
-            <div class="dot" id="dot3"><div class="dotContent"></div></div>
-        </div>
+        <section class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </section>
     </div>
 
     <div id="scriptingDiv" style="display: none;">
@@ -842,7 +844,8 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
         </div>
         <div id="results">
             <div id="resultsTitle">Ergebnis</div>
-            <div id="infoTitle"><i>Indem man die grauen Wanteds anklickt kann man auswählen ob diese hinzugefügt werden.</i></div>
+            <div id="infoTitle">Bei den grauen Wanteds ist dem Officer das Strafmaß Freigestellt. Durch anklicken können diese ausgewählt werden. Bei gelben Wanteds ist dieses Festgelegt<b></div>
+            <hr color="#121212">
             <div class="result" id="fineResult"><b>Geldstrafe:</b> $0</div>
             <div class="result" id="wantedsResult"><b>Wanteds:</b> 0</div>
             <div class="result" id="reasonResult"><b>Grund:</b></div>
@@ -943,12 +946,15 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();e.stopPro
 
                 </div>
             </div>
-
+    
 
             
            <div id="standartNotifications">
         </div>
     </div>
+    <button class="help-button" onclick="window.open('https://github.com/Carnifexe/Carnifexe.github.io/blob/main/README.md')">
+        ?<span> Lizenzvereinbarung</span>
+    </button>
     </body>
 
 </html>
